@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#FF6B35">
+    <title>高中生涯百宝箱Pro</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="splash-screen" class="splash-screen">
+            <div class="splash-content">
+                <div class="fire-spark"></div>
+                <h1 class="splash-title">高中生涯百宝箱Pro</h1>
+                <p class="splash-subtitle">你的高中好伙伴</p>
+            </div>
+        </div>
+        
+        <div id="main-container" class="main-container hidden">
+            <div id="pages-container" class="pages-container">
+                <div id="login-page" class="page active">
+                    <div class="login-container">
+                        <div class="login-logo">
+                            <div class="fire-spark"></div>
+                            <h1>高中生涯百宝箱Pro</h1>
+                        </div>
+                        <div class="login-form">
+                            <div class="form-group">
+                                <label>用户ID</label>
+                                <input type="text" id="login-id" placeholder="请输入6位ID" maxlength="6">
+                            </div>
+                            <div class="form-group">
+                                <label>密码</label>
+                                <input type="password" id="login-password" placeholder="请输入密码">
+                            </div>
+                            <button class="login-btn" id="login-submit">登录</button>
+                            <button class="register-btn" id="register-btn">注册新账号</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="home-page" class="page">
+                    <header class="page-header">
+                        <div class="user-avatar" id="my-profile-btn">
+                            <span>👤</span>
+                        </div>
+                        <h1>百宝箱</h1>
+                        <button class="header-btn" id="notifications-btn">
+                            <span>🔔</span>
+                        </button>
+                    </header>
+                    
+                    <div class="page-content">
+                        <section class="hero-section">
+                            <div class="hero-card">
+                                <div class="hero-fire">
+                                    <div id="home-fire" class="fire-sprite stage-0"></div>
+                                    <div class="hero-ball"></div>
+                                </div>
+                                <div class="hero-text">
+                                    <h2>今天也要加油哦~</h2>
+                                    <p id="home-date"></p>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section class="quick-actions">
+                            <h3 class="section-title">快捷入口</h3>
+                            <div class="quick-grid">
+                                <div class="quick-item" data-page="pomodoro">
+                                    <span class="quick-icon">🍅</span>
+                                    <span class="quick-label">番茄钟</span>
+                                </div>
+                                <div class="quick-item" data-page="countdown">
+                                    <span class="quick-icon">⏰</span>
+                                    <span class="quick-label">倒计时</span>
+                                </div>
+                                <div class="quick-item" data-page="messages">
+                                    <span class="quick-icon">💬</span>
+                                    <span class="quick-label">消息</span>
+                                </div>
+
+                                <div class="quick-item" data-page="schedule">
+                                    <span class="quick-icon">📅</span>
+                                    <span class="quick-label">课程表</span>
+                                </div>
+                                <div class="quick-item" data-page="compass">
+                                    <span class="quick-icon">🧭</span>
+                                    <span class="quick-label">指南针</span>
+                                </div>
+                                <div class="quick-item" data-page="falldetect">
+                                    <span class="quick-icon">🆘</span>
+                                    <span class="quick-label">跌倒检测</span>
+                                </div>
+                                <div class="quick-item" data-page="ruler">
+                                    <span class="quick-icon">📏</span>
+                                    <span class="quick-label">尺子</span>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <section class="feature-list">
+                            <h3 class="section-title">全部功能</h3>
+                            <div class="feature-card-large" data-page="study">
+                                <div class="feature-left">
+                                    <span class="feature-emoji">📚</span>
+                                    <div>
+                                        <h4>学习成长</h4>
+                                        <p>番茄钟 · 倒计时 · 课程表 · 错题本 · 心情打卡</p>
+                                    </div>
+                                </div>
+                                <span class="feature-arrow">→</span>
+                            </div>
+                            <div class="feature-card-large" data-page="tools">
+                                <div class="feature-left">
+                                    <span class="feature-emoji">🔧</span>
+                                    <div>
+                                        <h4>生活工具箱</h4>
+                                        <p>尺子 · 指南针 · 账单 · 时光胶囊 · 跌倒检测</p>
+                                    </div>
+                                </div>
+                                <span class="feature-arrow">→</span>
+                            </div>
+                            <div class="feature-card-large" data-page="relax">
+                                <div class="feature-left">
+                                    <span class="feature-emoji">🎮</span>
+                                    <div>
+                                        <h4>放松充电站</h4>
+                                        <p>小游戏 · 白噪音</p>
+                                    </div>
+                                </div>
+                                <span class="feature-arrow">→</span>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                
+                <div id="profile-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>我的</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content scrollable">
+                        <div class="profile-card">
+                            <div class="profile-avatar">👤</div>
+                            <h2 id="profile-name">用户</h2>
+                            <p class="profile-id">ID: <span id="profile-id-display">------</span></p>
+                        </div>
+                        <div class="settings-list">
+                            <div class="setting-item" id="edit-profile-btn">
+                                <span>✏️</span>
+                                <span>编辑资料</span>
+                                <span>→</span>
+                            </div>
+                            <div class="setting-item" data-page="emergency">
+                                <span>📞</span>
+                                <span>紧急联系人</span>
+                                <span>→</span>
+                            </div>
+                            <div class="setting-item" id="logout-btn">
+                                <span>🚪</span>
+                                <span>退出登录</span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="emergency-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>紧急联系人</h1>
+                        <button class="header-btn" id="add-emergency-btn">
+                            <span>➕</span>
+                        </button>
+                    </header>
+                    <div class="page-content scrollable">
+                        <div class="fall-info-card">
+                            <h3>⚠️ 跌倒检测说明</h3>
+                            <p>当检测到严重跌倒时，应用会自动向紧急联系人拨打电话并发送通知。请确保已授予电话权限。</p>
+                        </div>
+                        <div class="emergency-list" id="emergency-list"></div>
+                    </div>
+                </div>
+                
+                <div id="study-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>学习成长</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content scrollable">
+                        <div class="module-card" data-module="pomodoro">
+                            <div class="module-icon-big">🍅</div>
+                            <div class="module-info">
+                                <h3>番茄专注钟</h3>
+                                <p>高效学习，劳逸结合</p>
+                            </div>
+                            <div class="module-badge">常用</div>
+                        </div>
+                        <div class="module-card" data-module="countdown">
+                            <div class="module-icon-big">⏰</div>
+                            <div class="module-info">
+                                <h3>高考倒计时</h3>
+                                <p>珍惜每分每秒</p>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="schedule">
+                            <div class="module-icon-big">📅</div>
+                            <div class="module-info">
+                                <h3>课程表</h3>
+                                <p>我的专属课程</p>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="mood">
+                            <div class="module-icon-big">😊</div>
+                            <div class="module-info">
+                                <h3>心情打卡</h3>
+                                <p>记录每一天</p>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="mistakes">
+                            <div class="module-icon-big">📝</div>
+                            <div class="module-info">
+                                <h3>错题本</h3>
+                                <p>温故而知新</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="tools-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>生活工具箱</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content scrollable">
+                        <div class="module-card" data-module="ruler">
+                            <div class="module-icon-big">📏</div>
+                            <div class="module-info">
+                                <h3>手机尺子</h3>
+                                <p>随时随地测量</p>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="compass">
+                            <div class="module-icon-big">🧭</div>
+                            <div class="module-info">
+                                <h3>指南针</h3>
+                                <p>辨别方向</p>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="falldetect">
+                            <div class="module-icon-big">🆘</div>
+                            <div class="module-info">
+                                <h3>跌倒检测</h3>
+                                <p>安全守护</p>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="expense">
+                            <div class="module-icon-big">💰</div>
+                            <div class="module-info">
+                                <h3>账单小管家</h3>
+                                <p>理性消费</p>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="capsule">
+                            <div class="module-icon-big">💌</div>
+                            <div class="module-info">
+                                <h3>时光胶囊</h3>
+                                <p>给未来写信</p>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="health">
+                            <div class="module-icon-big">🏥</div>
+                            <div class="module-info">
+                                <h3>健康管理</h3>
+                                <p>紧急资料卡</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="messages-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>消息</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content scrollable">
+                        <div class="section-divider">
+                            <span>AI助手</span>
+                        </div>
+                        <div class="chat-list">
+                            <div class="chat-item" data-chat="ai">
+                                <div class="chat-avatar">🤖</div>
+                                <div class="chat-content">
+                                    <div class="chat-header">
+                                        <span class="chat-name">小明同学 (AI)</span>
+                                        <span class="chat-time" id="ai-chat-time">刚刚</span>
+                                    </div>
+                                    <p class="chat-preview" id="ai-chat-preview">有什么我可以帮助你的？</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <div id="chat-detail-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <div class="chat-header-info">
+                            <span class="chat-detail-avatar">🤖</span>
+                            <h1>小明同学</h1>
+                        </div>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="chat-detail-content" id="chat-messages"></div>
+                    <div class="chat-input-area">
+                        <button class="emoji-btn">😊</button>
+                        <input type="text" class="chat-input" id="chat-input" placeholder="输入消息...">
+                        <button class="send-btn" id="send-btn">发送</button>
+                    </div>
+                </div>
+                
+
+                
+                <div id="relax-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>放松充电站</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content scrollable">
+                        <div class="module-card" data-module="games">
+                            <div class="module-icon-big">🎮</div>
+                            <div class="module-info">
+                                <h3>小游戏</h3>
+                                <p>劳逸结合</p>
+                            </div>
+                        </div>
+                        <div class="module-card" data-module="whitenoise">
+                            <div class="module-icon-big">🌧️</div>
+                            <div class="module-info">
+                                <h3>白噪音</h3>
+                                <p>专注/放松</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="pomodoro-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>番茄专注钟</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content">
+                        <div class="pomodoro-container">
+                            <div class="timer-circle">
+                                <svg class="timer-svg" viewBox="0 0 200 200">
+                                    <circle class="timer-bg" cx="100" cy="100" r="90"></circle>
+                                    <circle class="timer-progress" cx="100" cy="100" r="90" id="timer-progress"></circle>
+                                </svg>
+                                <div class="timer-display">
+                                    <span class="timer-time" id="timer-minutes">25</span>
+                                    <span class="timer-time">:</span>
+                                    <span class="timer-time" id="timer-seconds">00</span>
+                                </div>
+                            </div>
+                            <div class="timer-controls">
+                                <button class="timer-btn" id="timer-start">
+                                    <span id="timer-btn-text">开始专注</span>
+                                </button>
+                                <button class="timer-btn-secondary" id="timer-reset">重置</button>
+                            </div>
+                            <div class="custom-time">
+                                <label>自定义时长（分钟）:</label>
+                                <input type="number" id="custom-minutes" value="25" min="1" max="120">
+                            </div>
+                            <div class="timer-presets">
+                                <button class="preset-btn active" data-minutes="25">25</button>
+                                <button class="preset-btn" data-minutes="15">15</button>
+                                <button class="preset-btn" data-minutes="45">45</button>
+                                <button class="preset-btn" data-minutes="60">60</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="countdown-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>高考倒计时</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content">
+                        <div class="countdown-container">
+                            <h2 class="countdown-title">距离高考还有</h2>
+                            <div class="countdown-display">
+                                <div class="countdown-item">
+                                    <span class="countdown-number" id="countdown-days">000</span>
+                                    <span class="countdown-label">天</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-number" id="countdown-hours">00</span>
+                                    <span class="countdown-label">时</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-number" id="countdown-minutes">00</span>
+                                    <span class="countdown-label">分</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-number" id="countdown-seconds">00</span>
+                                    <span class="countdown-label">秒</span>
+                                </div>
+                            </div>
+                            <div class="countdown-setting">
+                                <label>设置高考日期：</label>
+                                <input type="date" id="exam-date">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="schedule-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>课程表</h1>
+                        <button class="header-btn" id="edit-schedule-btn">
+                            <span>✏️</span>
+                        </button>
+                    </header>
+                    <div class="page-content">
+                        <div class="schedule-container">
+                            <div class="schedule-days">
+                                <button class="day-btn active" data-day="1">周一</button>
+                                <button class="day-btn" data-day="2">周二</button>
+                                <button class="day-btn" data-day="3">周三</button>
+                                <button class="day-btn" data-day="4">周四</button>
+                                <button class="day-btn" data-day="5">周五</button>
+                                <button class="day-btn" data-day="6">周六</button>
+                                <button class="day-btn" data-day="7">周日</button>
+                            </div>
+                            <div class="schedule-grid" id="schedule-grid"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="mood-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>心情打卡</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content">
+                        <div class="mood-container">
+                            <h3 class="mood-title">今天心情怎么样？</h3>
+                            <div class="mood-selector">
+                                <div class="mood-item" data-mood="1">😢</div>
+                                <div class="mood-item" data-mood="2">😔</div>
+                                <div class="mood-item" data-mood="3">😐</div>
+                                <div class="mood-item" data-mood="4">🙂</div>
+                                <div class="mood-item" data-mood="5">😊</div>
+                            </div>
+                            <div class="mood-note">
+                                <textarea id="mood-text" placeholder="写下今天的想法..."></textarea>
+                            </div>
+                            <button class="timer-btn" id="save-mood-btn">保存</button>
+                            <div class="mood-history" id="mood-history"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="mistakes-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>错题本</h1>
+                        <button class="header-btn" id="add-mistake-btn">
+                            <span>➕</span>
+                        </button>
+                    </header>
+                    <div class="page-content scrollable">
+                        <div class="mistakes-tags">
+                            <button class="tag-btn active" data-tag="all">全部</button>
+                            <button class="tag-btn" data-tag="math">数学</button>
+                            <button class="tag-btn" data-tag="chinese">语文</button>
+                            <button class="tag-btn" data-tag="english">英语</button>
+                        </div>
+                        <div class="mistakes-list" id="mistakes-list"></div>
+                    </div>
+                </div>
+                
+                <div id="compass-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>指南针</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content">
+                        <div class="compass-container">
+                            <div class="compass-dial" id="compass-dial">
+                                <div class="compass-needle" id="compass-needle"></div>
+                            </div>
+                            <div class="compass-info">
+                                <p>方向</p>
+                                <p class="compass-direction" id="compass-direction">N</p>
+                                <p class="compass-degree" id="compass-degree">0°</p>
+                            </div>
+                            <button class="timer-btn" id="compass-calibrate">校准</button>
+                            <p class="compass-note">请在室外使用，确保设备支持方向传感器</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="falldetect-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>跌倒检测</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content">
+                        <div class="falldetect-container">
+                            <div class="fall-status-card" id="fall-status-card">
+                                <div class="fall-status-icon">✅</div>
+                                <h3>系统正常</h3>
+                                <p>正在监控中...</p>
+                            </div>
+                            <div class="fall-toggle">
+                                <label>启用跌倒检测</label>
+                                <div class="toggle-switch" id="fall-toggle">
+                                    <div class="toggle-handle"></div>
+                                </div>
+                            </div>
+                            <div class="fall-info">
+                                <h4>📊 传感器数据</h4>
+                                <div class="sensor-data">
+                                    <p>加速度: <span id="accel-data">0, 0, 0</span></p>
+                                    <p>合加速度: <span id="total-accel">0</span> g</p>
+                                </div>
+                            </div>
+                            <div class="fall-history" id="fall-history">
+                                <h4>📋 检测历史</h4>
+                                <div class="fall-history-list" id="fall-history-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="expense-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>账单小管家</h1>
+                        <button class="header-btn" id="add-expense-btn">
+                            <span>➕</span>
+                        </button>
+                    </header>
+                    <div class="page-content scrollable">
+                        <div class="expense-summary">
+                            <div class="summary-item">
+                                <p>本月支出</p>
+                                <p class="summary-amount" id="monthly-expense">¥0</p>
+                            </div>
+                            <div class="summary-item">
+                                <p>本月收入</p>
+                                <p class="summary-amount income" id="monthly-income">¥0</p>
+                            </div>
+                        </div>
+                        <div class="expense-list" id="expense-list"></div>
+                    </div>
+                </div>
+                
+                <div id="capsule-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>时光胶囊</h1>
+                        <button class="header-btn" id="write-capsule-btn">
+                            <span>✏️</span>
+                        </button>
+                    </header>
+                    <div class="page-content scrollable">
+                        <div class="capsule-list" id="capsule-list"></div>
+                    </div>
+                </div>
+                
+                <div id="games-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>小游戏</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content scrollable">
+                        <div class="game-card" data-game="2048">
+                            <div class="game-icon-big">🎯</div>
+                            <div class="game-info">
+                                <h3>2048</h3>
+                                <p>经典数字游戏</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="2048-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>2048</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content">
+                        <div class="game2048-container">
+                            <div class="game2048-score">
+                                <span>分数: <span id="2048-score">0</span></span>
+                            </div>
+                            <div id="game2048-grid" class="game2048-grid"></div>
+                            <button class="timer-btn" id="2048-restart">重新开始</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="whitenoise-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>白噪音</h1>
+                        <div class="spacer"></div>
+                    </header>
+                    <div class="page-content">
+                        <div class="whitenoise-container">
+                            <div class="noise-card" data-noise="rain">
+                                <div class="noise-icon-big">🌧️</div>
+                                <h3>雨声</h3>
+                                <button class="noise-play-btn">播放</button>
+                            </div>
+                            <div class="noise-card" data-noise="forest">
+                                <div class="noise-icon-big">🌲</div>
+                                <h3>森林</h3>
+                                <button class="noise-play-btn">播放</button>
+                            </div>
+                            <div class="noise-card" data-noise="waves">
+                                <div class="noise-icon-big">🌊</div>
+                                <h3>海浪</h3>
+                                <button class="noise-play-btn">播放</button>
+                            </div>
+                            <div class="noise-card" data-noise="fire">
+                                <div class="noise-icon-big">🔥</div>
+                                <h3>篝火</h3>
+                                <button class="noise-play-btn">播放</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="ruler-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>手机尺子</h1>
+                        <div class="unit-toggle">
+                            <button id="unit-cm" class="unit-btn active">cm</button>
+                            <button id="unit-inch" class="unit-btn">inch</button>
+                        </div>
+                    </header>
+                    <div class="page-content">
+                        <canvas id="ruler-canvas" class="ruler-canvas"></canvas>
+                        <div class="ruler-info">
+                            <p>触摸屏幕测量长度</p>
+                            <p id="ruler-measurement">0.00 cm</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="health-page" class="page">
+                    <header class="page-header">
+                        <button class="back-btn">←</button>
+                        <h1>健康管理</h1>
+                        <button class="header-btn" id="edit-health-btn">
+                            <span>✏️</span>
+                        </button>
+                    </header>
+                    <div class="page-content scrollable">
+                        <div class="health-card">
+                            <h3>🏥 紧急资料卡</h3>
+                            <div class="health-info">
+                                <div class="health-item">
+                                    <span class="health-label">血型</span>
+                                    <span class="health-value" id="health-blood-type">未设置</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-label">身高</span>
+                                    <span class="health-value" id="health-height">未设置</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-label">体重</span>
+                                    <span class="health-value" id="health-weight">未设置</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-label">年龄</span>
+                                    <span class="health-value" id="health-age">未设置</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-label">性别</span>
+                                    <span class="health-value" id="health-gender">未设置</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-label">过敏史</span>
+                                    <span class="health-value" id="health-allergy">未设置</span>
+                                </div>
+                                <div class="health-item">
+                                    <span class="health-label">特殊疾病</span>
+                                    <span class="health-value" id="health-disease">未设置</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="health-tips">
+                            <h4>💡 健康提示</h4>
+                            <p>请定期更新您的健康资料，以便在紧急情况下提供重要信息。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="edit-health-modal" class="modal-container hidden">
+                    <div class="modal">
+                        <h2>编辑健康资料</h2>
+                        <div class="form-group">
+                            <label>血型</label>
+                            <select id="blood-type">
+                                <option value="">请选择</option>
+                                <option value="A">A型</option>
+                                <option value="B">B型</option>
+                                <option value="AB">AB型</option>
+                                <option value="O">O型</option>
+                                <option value="Rh阴性">Rh阴性</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>身高 (cm)</label>
+                            <input type="number" id="height" placeholder="请输入身高" min="0" max="250">
+                        </div>
+                        <div class="form-group">
+                            <label>体重 (kg)</label>
+                            <input type="number" id="weight" placeholder="请输入体重" min="0" max="300">
+                        </div>
+                        <div class="form-group">
+                            <label>年龄</label>
+                            <input type="number" id="age" placeholder="请输入年龄" min="0" max="150">
+                        </div>
+                        <div class="form-group">
+                            <label>性别</label>
+                            <select id="gender">
+                                <option value="">请选择</option>
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>过敏史</label>
+                            <input type="text" id="allergies" placeholder="请输入过敏史">
+                        </div>
+                        <div class="form-group">
+                            <label>特殊疾病</label>
+                            <input type="text" id="special-diseases" placeholder="请输入特殊疾病">
+                        </div>
+                        <div class="modal-buttons">
+                            <button class="modal-btn-secondary" id="cancel-edit-health">取消</button>
+                            <button class="modal-btn" id="save-edit-health">保存</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <nav id="bottom-nav" class="bottom-nav">
+                <button class="nav-item active" data-page="home">
+                    <span class="nav-icon">🏠</span>
+                    <span class="nav-label">首页</span>
+                </button>
+                <button class="nav-item" data-page="study">
+                    <span class="nav-icon">📚</span>
+                    <span class="nav-label">学习</span>
+                </button>
+                <button class="nav-item" data-page="messages">
+                    <span class="nav-icon">💬</span>
+                    <span class="nav-label">消息</span>
+                </button>
+                <button class="nav-item" data-page="relax">
+                    <span class="nav-icon">🎮</span>
+                    <span class="nav-label">放松</span>
+                </button>
+            </nav>
+        </div>
+        
+        <div id="modal-container" class="modal-container hidden"></div>
+        
+        <div id="edit-profile-modal" class="modal-container hidden">
+            <div class="modal">
+                <h2>编辑资料</h2>
+                <div class="form-group">
+                    <label>昵称</label>
+                    <input type="text" id="edit-name" placeholder="请输入昵称">
+                </div>
+                <div class="form-group">
+                    <label>年龄</label>
+                    <input type="number" id="edit-age" placeholder="请输入年龄" min="12" max="18">
+                </div>
+                <div class="form-group">
+                    <label>性别</label>
+                    <select id="edit-gender">
+                        <option value="">请选择</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>头像</label>
+                    <div class="avatar-selector">
+                        <div class="avatar-option" data-avatar="👤">👤</div>
+                        <div class="avatar-option" data-avatar="🧑‍🎓">🧑‍🎓</div>
+                        <div class="avatar-option" data-avatar="👨‍🎓">👨‍🎓</div>
+                        <div class="avatar-option" data-avatar="👩‍🎓">👩‍🎓</div>
+                        <div class="avatar-option" data-avatar="🧑‍💼">🧑‍💼</div>
+                        <div class="avatar-option" data-avatar="🎓">🎓</div>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button class="modal-btn-secondary" id="cancel-edit">取消</button>
+                    <button class="modal-btn" id="save-edit">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/user.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/messages.js"></script>
+
+    <script src="js/expense.js"></script>
+    <script src="js/mistakes.js"></script>
+    <script src="js/schedule.js"></script>
+    <script src="js/mood.js"></script>
+    <script src="js/pomodoro.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/ruler.js"></script>
+    <script src="js/compass.js"></script>
+    <script src="js/falldetect.js"></script>
+    <script src="js/emergency.js"></script>
+    <script src="js/games.js"></script>
+    <script src="js/whitenoise.js"></script>
+    <script src="js/capsule.js"></script>
+    <script src="js/fire.js"></script>
+    <script src="js/health.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

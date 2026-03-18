@@ -1,0 +1,21 @@
+{
+  "name": "gaozhong-sheng-baibaoxiang",
+  "version": "1.0.0",
+  "description": "高中生涯百宝箱Pro - 轻后端",
+  "main": "backend-gitee.js",
+  "scripts": {
+    "start": "node backend-gitee.js",
+    "dev": "node backend-gitee.js"
+  },
+  "keywords": ["baoxiang", "highschool"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "better-sqlite3": "^9.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

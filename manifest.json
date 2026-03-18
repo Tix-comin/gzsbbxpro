@@ -1,0 +1,22 @@
+{
+    "name": "高中生涯百宝箱Pro",
+    "short_name": "百宝箱Pro",
+    "description": "高中生学习生活好伙伴",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FF6B35",
+    "theme_color": "#FF6B35",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
